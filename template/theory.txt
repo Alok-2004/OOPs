@@ -1,0 +1,60 @@
+In C++, templates are a powerful feature that allows you to write generic code that can work with different data types. Here are some key points about C++ templates:
+
+1. Template Declaration:
+   Templates are declared using the `template` keyword, followed by the template parameter list enclosed in angle brackets `< >`. For example:
+
+   ```cpp
+   template <typename T>
+   class MyTemplate {
+       // ...
+   };
+   ```
+
+2. Template Parameters:
+   Templates can have one or more template parameters, which can be types, non-type values, or templates themselves. In the example above, `T` is a type template parameter.
+
+3. Generic Code:
+   Templates allow you to write code that is not tied to a specific data type. You can use the template parameter `T` to represent the data type that will be provided when you use the template.
+
+4. Template Instantiation:
+   To use a template, you need to instantiate it with a specific data type. This is done by specifying the data type inside angle brackets when you create an instance of the template class:
+
+   ```cpp
+   MyTemplate<int> myIntInstance;  // Instantiate with int
+   MyTemplate<double> myDoubleInstance;  // Instantiate with double
+   ```
+
+5. Function Templates:
+   In addition to class templates, C++ also supports function templates. Function templates allow you to write generic functions that can work with various data types.
+
+   ```cpp
+   template <typename T>
+   T add(T a, T b) {
+       return a + b;
+   }
+   ```
+
+6. Specialization:
+   You can provide specialized implementations of a template for specific data types. For example, you can provide a different implementation of a template for a `char` type than for a generic type.
+
+   ```cpp
+   template <>
+   class MyTemplate<char> {
+       // Specialized implementation for char
+   };
+   ```
+
+7. Template Constraints (C++20 and later):
+   In C++20 and later versions, you can use concepts to specify constraints on template parameters. Concepts allow you to restrict which types can be used with a template.
+
+   ```cpp
+   template <typename T>
+   concept Numeric = std::is_arithmetic<T>::value;
+
+   template <Numeric T>
+   T add(T a, T b) {
+       return a + b;
+   }
+   ```
+
+Templates in C++ are a powerful feature that enable you to write flexible and generic code, making it easier to work with different data types while avoiding code duplication. They are widely used in libraries and frameworks to provide generic solutions for a variety of data types.
